@@ -24,7 +24,6 @@ class Codechef
 		        b = sc.nextInt();
 		        max = Math.max(b, max);
 		        sum += b;
-		        A[i] = sum;
 		    }
 		    System.out.println(sum + max);
 		}
