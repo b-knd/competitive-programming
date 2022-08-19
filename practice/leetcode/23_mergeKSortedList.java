@@ -1,4 +1,4 @@
-//my solution
+//improved version using priority queue (O(N log k) time complexity O(N) space to create new list, O(k) space for priority queues
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -9,6 +9,31 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        ListNode head = new ListNode();
+        ListNode curr = head;
+        PriorityQueue<ListNode> pq = new PriorityQueue<>((a,b) -> a.val-b.val);
+        for(ListNode l: lists){
+            if(l != null){
+                pq.add(l);
+            }
+        }
+        while(!pq.isEmpty()){
+            ListNode n = pq.poll();
+            curr.next = new ListNode(n.val);
+            curr = curr.next;
+            n = n.next;
+            if(n != null){
+                pq.add(n);
+            }
+        }
+        return head.next;
+    }
+}
+
+
+//my solution (O(kN) time complexity, O(N) space complexity
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode head = null;
@@ -37,12 +62,17 @@ class Solution {
             }
             if(l1.val <= l2.val){
                 curr.next = l1;
-                l1 = l1.next;
+                while(l1 != null && l1.val <= l2.val){
+                    l1 = l1.next;
+                    curr = curr.next;
+                }
             } else{
                 curr.next = l2;
-                l2 = l2.next;
+                while(l2 != null && l2.val < l1.val){
+                    l2 = l2.next;
+                    curr = curr.next;
+                }
             }
-            curr = curr.next;
         }
         return dummyHead.next;
     }
