@@ -5,8 +5,12 @@ class Solution {
         if(n == 1){
             return "1";
         }
-        //count previous (recursion)
-        return count(countAndSay(n-1));
+        if(memo[n] != null){
+            return memo[n];
+        } else{
+            memo[n] = count(countAndSay(n-1));
+            return memo[n];
+        }
     }
     
     
