@@ -1,3 +1,6 @@
+//O(N) time complexity
+//O(N) space complexity
+
 class Solution {
     public int mostFrequentEven(int[] nums) {
         HashMap<Integer, Integer> hm = new HashMap<>();
