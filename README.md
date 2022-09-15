@@ -6,3 +6,4 @@
 - **CodeChef**: b_knd - codechef rating: 1363 | country rating: 21
 - **LeetCode**: b-knd - contest rating: 1470 (top 53.88%)
 - **KickStart**: highest rank: 4888th for Kick Start 2022 Round D 
+- **Hackerearth: jingru - contest rating: 1559
