@@ -1,3 +1,7 @@
+//twopointer
+//O(n) time complexity: single iteration
+//O(1) space complexity
+
 class Solution {
     public int trap(int[] height) {
         int left = 0;
